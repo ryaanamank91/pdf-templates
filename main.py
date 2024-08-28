@@ -17,6 +17,10 @@ for index, row in df.iterrows():
     pdf.cell(w=0, h=12, txt=row["Topic"], align="L", ln=1)  # sets the config of page and the content
     pdf.line(x1=10, y1=21, x2=200, y2=21)  # To add an underline below the topics
 
+    # to iterate inside the loop of the page and add more pages for the same topic
+    for i in range(row["Pages"] - 1):
+        pdf.add_page()
+
 # output the pdf file on the disk
 pdf.output("output.pdf")
 
